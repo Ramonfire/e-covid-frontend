@@ -1,0 +1,126 @@
+<div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded"
+  [ngClass]="color === 'light' ? 'bg-white' : 'bg-red-900 text-white'">
+  <div class="rounded-t mb-0 px-4 py-3 border-0">
+    <div class="flex flex-wrap items-center justify-center">
+      <div class="relative px-4 max-w-full flex flex-grow flex-row justify-between items-center">
+        <h3 class="font-semibold text-lg p-4 mb-4" [ngClass]="color === 'light' ? 'text-blueGray-700' : 'text-white'">
+          USERS LIST
+        </h3>
+        <div  class="block overflow-x-auto">
+          <div *ngIf="state=='fail'" class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+            <span class="font-medium text-sm text-red-700 dark:text-red-800">Danger alert! </span>{{msgerror}}.
+            </div>
+          <div  *ngIf="state=='success'"  class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+            <span class="font-medium">Deleted Successfuly.!</span> 
+      </div>
+      </div>
+      
+    </div>
+  </div>
+  
+    <!-- Projects table -->
+    <table class="items-center w-full bg-transparent border-collapse">
+      <thead>
+        <tr>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            ">
+            ROLE
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            ">
+            USERNAME
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            ">
+            Status
+          </th>
+
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            ">
+            Email
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            ">
+            Permission
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            "></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <th
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+            <img *ngIf=" user.roles[0].name==='ROLE_ADMIN' "
+              src="https://i.pinimg.com/736x/d0/53/f2/d053f2394d420d8d3712046f4e8f80cc.jpg"
+              class="h-12 w-12 bg-white rounded-full border" alt="..." />
+            <img *ngIf=" user.roles[0].name==='ROLE_MODERATOR' "
+              src="https://previews.123rf.com/images/tashatuvango/tashatuvango1702/tashatuvango170200528/71397012-moderator-job-vacancy-3d-.jpg              "
+              class="h-12 w-12 bg-white rounded-full border" alt="..." />
+            <img *ngIf=" user.roles[0].name==='ROLE_USER' "
+              src="https://th.bing.com/th/id/R.332764865d005b74043c007d164478e8?rik=x4o1iu9i2qO99A&pid=ImgRaw&r=0"
+              class="h-12 w-12 bg-white rounded-full border" alt="..." />
+            <span class="ml-3 font-bold" [ngClass]="color === 'light' ? 'text-blueGray-600' : 'text-white'">
+              {{ user.roles[0].name.split('_')[1] }}
+            </span>
+          </th>
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+            {{ user.username | uppercase }}
+          </td>
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+            <i class="fas fa-circle text-orange-500 mr-2"></i> pending
+          </td>
+
+          <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+            <div class="flex items-center">
+              <span class="mr-2">{{user.email | uppercase}}</span>
+
+            </div>
+          </td>
+          <td>
+            permission
+          </td>
+          <td>
+            <app-table-dropdown [callbackmethode]="printnamebinded" [user]="user"></app-table-dropdown>
+          </td>
+          
+          
+        </tr>
+
+      </tbody>
+    </table>
+    
+
+  </div>
+
+</div>

@@ -1,0 +1,61 @@
+<div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+
+<ul ngbNav #nav="ngbNav" [(activeId)]="active"  class="flex flex-wrap -mb-px text-sm font-semibold dark:border-gray-700">
+	<li [ngbNavItem]="1" class=" mr-2" id="li">
+		<a class=" focus:text-blue-700 text-black inline-block p-4 rounded-t-lg border-b-2 " ngbNavLink> Social Media Comments  </a>
+		
+		
+		<ng-template ngbNavContent *ngIf="data === 'Topic '">
+			<p>
+				
+				<app-sachart ></app-sachart>
+			</p>
+		</ng-template>
+		<ng-template ngbNavContent *ngIf="data === 'Sentimental '">
+			<p>
+				
+				<app-xchart ></app-xchart>	
+			</p>
+		</ng-template>
+
+	</li>
+	<li [ngbNavItem]="2" class=" mr-2">
+		<a class="inline-block p-4 focus:text-blue-700 text-black rounded-t-lg border-b-2" ngbNavLink> Distribution Of {{data}} Last 7 Days</a>
+		<ng-template ngbNavContent *ngIf="data === 'Topic '">
+			<p>
+				
+				<app-tachart ></app-tachart>
+			</p>
+		</ng-template>
+		<ng-template ngbNavContent *ngIf="data === 'Sentimental '">
+			<p>
+				
+				<app-zchart ></app-zchart>	
+			</p>
+		</ng-template>
+	</li>
+	<li [ngbNavItem]="3" class="   mr-2">
+		<a class="inline-block p-4  focus:text-blue-700 text-black rounded-t-lg border-b-2" ngbNavLink>Evolution of {{data}} in last 7 days</a>
+		<ng-template ngbNavContent *ngIf="data === 'Topic '">
+			<p>
+				
+				<app-chart ></app-chart>
+			</p>
+		</ng-template>
+		<ng-template ngbNavContent *ngIf="data === 'Sentimental '">
+			<p>
+				
+				<app-ychart ></app-ychart>	
+			</p>
+		</ng-template>
+	</li>
+</ul>
+</div>
+
+
+
+<div [ngbNavOutlet]="nav" class="mt-2 p-16 rounded-lg"></div>
+
+<pre>Active: {{ active }}</pre>
+
+

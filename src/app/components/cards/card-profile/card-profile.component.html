@@ -1,0 +1,54 @@
+<<script  src="../../../../../node_modules/flowbite/dist/flowbite.js"></script>
+
+<div
+  class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16"
+>
+  <div class="px-6">
+    <div class="flex flex-wrap justify-center">
+      <div class="w-full px-4 flex justify-center">
+        <div class="relative">
+          <img
+            alt="..."
+            src="https://thumbs.dreamstime.com/b/admin-sign-laptop-icon-stock-vector-166205404.jpg"
+            class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
+          />
+        </div>
+      </div>
+      <div class="w-full px-4 text-center mt-20">
+        
+      </div>
+    </div>
+    <div class="text-center mt-12">
+      <h3
+        class="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2"
+      >
+        {{username}}
+      </h3>
+      <div
+        class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase"
+      >
+        <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
+        RABAT, SALE
+      </div>
+      <div *ngFor="let role of roles"  class="mb-2 text-blueGray-600 mt-10">
+        <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
+        {{role}}
+      </div>
+      
+    <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
+      <div class="flex flex-wrap justify-center">
+        <div class="w-full lg:w-9/12 px-4">
+          <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
+            A simple bio with concrete facts goes a long way. Tell us who you are, where you're from (if it matters to you), where you live, and what you do. And if you have a photo or video of yourself you want to share, make a note to include that.
+          </p>
+          <a href="javascript:void(0);" class="font-normal text-red-600">
+            <app-create-acc-modal></app-create-acc-modal>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+>

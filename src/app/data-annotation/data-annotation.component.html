@@ -1,0 +1,205 @@
+
+<section class="flex flex-col justify-between">
+    <header class="bg-w-500 p-4  border-b-2 space-y-4  sm:px-8 sm:py-6 lg:p-4 xl:px-8 xl:py-6">
+        <button routerLink="/admin/dashboard" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+            <span class="relative px-2.5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                <i class="fas fa-house"></i>
+            </span>
+          </button>
+      <div class="flex items-center  justify-center flex-col ">
+        <h2 class="font-semibold text-slate-900 text-gray-700  underline ">Commentaire</h2>
+        <p class="mt-10">
+            <label for="Commentaire" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                {{comment}}
+            </label>
+        </p>
+        
+      </div>
+     
+    </header>
+
+    <div  class="  grid grid-cols-2 border-b-2   border-spacing-2  gap-4 place-items-center">
+        <div class=" flex flex-col items-center mt-1 mb-5 " >
+            <h3 class="mb-4 ml-10 Arial font-semibold text-gray-900 dark:text-white">Emotion</h3>
+    <ul id="ul"  #myUl class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+        <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+            <div class="flex items-center pl-3">
+                <input 
+                (change)="selectType2($event)"
+                [disabled]="isTypesValid2()"
+                id="Optimism" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="Optimism" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Optimism</label>
+            </div>
+        </li>
+        <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+            <div class="flex items-center pl-3">
+                <input
+                (change)="selectType2($event)"
+                [disabled]="isTypesValid2()"
+                 id="Approval" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="Approval" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Approval</label>
+            </div>
+        </li>
+        <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+            <div class="flex items-center pl-3">
+                <input
+                (change)="selectType2($event)"
+                [disabled]="isTypesValid2()"
+                 id="Trust" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="Trust" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Trust</label>
+            </div>
+        </li>
+        <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+            <div class="flex items-center pl-3">
+                <input 
+                (change)="selectType2($event)"
+                [disabled]="isTypesValid2()"
+                id="Mistrust" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="Mistrust" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Mistrust</label>
+            </div>
+        </li>
+        <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+            <div class="flex items-center pl-3">
+                <input
+                (change)="selectType2($event)"
+                [disabled]="isTypesValid2()"
+                 id="Anger" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="Anger" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Anger</label>
+            </div>
+        </li>
+        <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+            <div class="flex items-center pl-3">
+                <input 
+                (change)="selectType2($event)"
+                [disabled]="isTypesValid2()"
+                id="Sadness" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="Sadness" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Sadness</label>
+            </div>
+        </li>
+        <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+            <div class="flex items-center pl-3">
+                <input
+                (change)="selectType2($event)"
+                [disabled]="isTypesValid2()"
+                 id="Fear" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="Fear" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Fear</label>
+            </div>
+        </li>
+        <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+            <div class="flex items-center pl-3">
+                <input
+                (change)="selectType2($event)"
+                [disabled]="isTypesValid2()"
+                 id="Other" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="Other" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Other</label>
+            </div>
+        </li>
+        
+    </ul>
+        </div>
+        <div  class=" flex flex-col items-center mt-1  mb-5 " >
+            <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Topic</h3>
+            <form>
+                <ul id="ul"  #myDiv   class=" w-48 dis text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                    <li     class="    w-full   rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+                        <div class="  flex items-center pl-3">
+                            <input  
+
+                            (change)="selectType($event)"
+                            [disabled]="isTypesValid()"
+                                                         id="Education" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                            <label for="Education" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Education</label>
+                        </div>
+                    </li>
+                    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                            <input
+                            
+                            (change)="selectType($event)"
+                            [disabled]="isTypesValid()"
+                             id="Economy" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                            <label for="Economy" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Economy</label>
+                        </div>
+                    </li>
+                    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                            <input
+                            
+                            (change)="selectType($event)"
+                            [disabled]="isTypesValid()"                              id="Statistics" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                            <label for="Statistics" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Statistics</label>
+                        </div>
+                    </li>
+                    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                            <input
+                            
+                            (change)="selectType($event)"
+                             [disabled]="isTypesValid()"
+                              id="Gouvernement" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                            <label for="Gouvernement" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Gouvernement</label>
+                        </div>
+                    </li>
+                    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                            <input
+                            
+                            (change)="selectType($event)"
+                             [disabled]="isTypesValid()"
+                              id="Sanity measures" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                            <label for="Sanity measures" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Sanity measures</label>
+                        </div>
+                    </li>
+                    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                            <input 
+                            (change)="selectType($event)"
+                             [disabled]="isTypesValid()" id="Health" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                            <label for="Health" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Health</label>
+                        </div>
+                    </li>
+                    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                            <input 
+                            (change)="selectType($event)"
+                             [disabled]="isTypesValid()" id="Social Life" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                            <label for="Social Life" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Social Life</label>
+                        </div>
+                    </li>
+                    <li class="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+                        <div class="flex items-center pl-3">
+                            <input 
+                            (change)="selectType($event)"
+                             [disabled]="isTypesValid()" id="Out of Scope" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                            <label for="Out of Scope" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Out of Scope</label>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </form>
+    
+        </div>
+    </div>
+    
+    <div class=" flex flex-row-reverse justify-center p-4 sm:px-8 sm:py-6 lg:p-4 xl:px-8 xl:py-6">
+
+   
+    <button *ngIf="this.ul.length >= 1 && this.ul2.length >= 1" type="submit" (click)="show()" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+            Submit
+        </span>
+      </button>
+      <button (click)="reset()"  class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+        <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+            reseat
+        </span>
+      </button>
+
+  
+    </div>
+     
+</section>
+
+
+
+  

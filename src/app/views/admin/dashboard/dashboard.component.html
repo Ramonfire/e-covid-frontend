@@ -1,0 +1,157 @@
+<div class="relative md:pt-16 pb-16">
+  
+  <div>
+    <!-- Card stats -->
+    <div class="flex flex-wrap">
+      <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+
+        <app-card-stats statSubtitle="COMMENTS"
+                        statTitle="21341"
+                        statArrow="up"
+                        statPercent="3.48"
+                        statPercentColor="text-emerald-500"
+                        statDescripiron="Since last month"
+                        statIconName="far fa-comment"
+                        statIconColor="bg-blue-900"></app-card-stats>
+      </div>
+      <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+        <app-card-stats statSubtitle="+ COMMENTS RATES"
+                        statTitle="123"
+                        statArrow="down"
+                        statPercent="6.73"
+                        statPercentColor="text-red-500"
+                        statDescripiron="Since last week"
+                        statIconName="fas fa-plus"
+                        statIconColor="bg-blue-900"></app-card-stats>
+      </div>
+      <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+        <app-card-stats statSubtitle="USER REGISTRATION"
+                        statTitle="5"
+                        statArrow="down"
+                        statPercent="1.10"
+                        statPercentColor="text-orange-500"
+                        statDescripiron="Since yesterday"
+                        statIconName="fas fa-users"
+                        statIconColor="bg-blue-900"></app-card-stats>
+      </div>
+      <div class="w-full lg:w-6/12 xl:w-3/12 px-4">
+        <app-card-stats statSubtitle="VISITOR"
+                        statTitle="12"
+                        statArrow="up"
+                        statPercent="12"
+                        statPercentColor="text-emerald-500"
+                        statDescripiron="Since last month"
+                        statIconName="fas fa-user"
+                        statIconColor="bg-blue-900"></app-card-stats>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="flex flex-wrap">
+<div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
+  <div
+  class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded"
+>
+  <div class="rounded-t mb-0 px-4 py-3 bg-transparent">
+    <div class="flex flex-wrap items-center">
+      <div class="relative w-full max-w-full flex-grow flex-1">
+        <h6 class="uppercase text-blueGray-400 mb-1 text-xs font-semibold">
+          Performance
+        </h6>
+        <h2 class="text-blueGray-700 text-xl font-semibold">TEMPORAL EVOLUTION OF COVID-RELATED SOCIAL MEDIA COMMENTS IN MORROCO</h2>
+      </div>
+    </div>
+  </div>
+  <div class="p-4 flex-auto">
+    <div class="relative" style="height: 350px">
+    <!-- Chart -->
+    <app-chart></app-chart>
+    </div>
+  </div>
+</div>
+  </div>
+<div class="w-full xl:w-4/12 px-4">
+  <div
+  class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-blueGray-700"
+>
+  <div class="rounded-t mb-0 px-4 py-3 bg-blue-900">
+    <div class="flex flex-wrap items-center">
+      <div class="relative w-full h max-w-full flex-grow flex-1">
+        <h6 class="uppercase text-blueGray-100 mb-1 text-xs font-semibold">
+          Overview
+        </h6>
+        <h2 class="text-white text-xl font-semibold">COMMENTS DISTRIBUTION BY EMOTION</h2>
+      </div>
+    </div>
+  </div>
+  <div class=" flex-auto bg-white ">
+    <!-- Chart -->    <div class="relative" style="height: 350px">
+
+      <table class="items-center w-full bg-transparent border-collapse">
+        <thead class="thead-light">
+          <tr>
+            <th
+              class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            >
+            Emotion
+            </th>
+            <th
+              class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            >
+              Numbers
+            </th>
+            <th
+              class="px-6 bg-blueGray-50 text-blueGray-500 align-middle border border-solid border-blueGray-100 py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left min-w-140-px"
+            ></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let ele of data ">
+          <tr  >
+            <th
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left"
+            >
+            {{ele.split(',')[1]}}
+            </th>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+            >
+            {{ele.split(',')[0]}}
+            </td>
+            <td
+              class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+            >
+              <div class="flex items-center">
+                <span class="mr-2">{{  (((ele.split(',')[0] ) * 100 ) / allComments ).toFixed(0)}} %</span>
+                <div class="relative w-full">
+                  <div
+                    class="overflow-hidden h-2 text-xs flex rounded bg-red-200"
+                  >
+                    <div
+                    style= "width: {{  (((ele.split(',')[0] ) * 100 ) / allComments ).toFixed(0)}}%"
+                      class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-red-500"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+    
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+<div class="flex flex-wrap mt-4">
+<div class="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
+  <app-card-page-visits></app-card-page-visits>
+</div>
+<div class="w-full xl:w-4/12 px-4">
+  <app-card-social-traffic></app-card-social-traffic>
+</div>
+</div>

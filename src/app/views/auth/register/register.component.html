@@ -1,0 +1,98 @@
+<div class="container mx-auto px-4 h-full">
+  <div class="flex content-center items-center justify-center h-full">
+    <div class="w-full lg:w-6/12 px-4">
+      <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
+        <div class="rounded-t mb-0 px-6 py-6">
+          <div class="text-center mb-3">
+            <h6 class="text-blueGray-500 text-sm font-bold">Sign up with</h6>
+          </div>
+          <div class="btn-wrapper text-center">
+            <button
+              class="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+              type="button">
+              <img alt="..." class="w-5 mr-1" src="assets/img/github.svg" />
+              Github
+            </button>
+            <button
+              class="bg-white active:bg-blueGray-50 text-blueGray-700 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
+              type="button">
+              <img alt="..." class="w-5 mr-1" src="assets/img/google.svg" />
+              Google
+            </button>
+          </div>
+          <hr class="mt-6 border-b-1 border-blueGray-300" />
+        </div>
+        <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+          <div class="text-blueGray-400 text-center mb-3 font-bold">
+            <small>Or sign up with credentials</small>
+          </div>
+          <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <div class="form-group">
+              <label class="block uppercase mt-6 text-blueGray-600 text-xs font-bold mb-2"
+                for="username">Username</label>
+              <input type="text"
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                name="username" [(ngModel)]="form.username" required minlength="3" maxlength="20" #username="ngModel" />
+              <div class="alert-danger alert-danger block uppercase mt-2 text-blueGray-600 text-xs font-bold mb-2 "
+                *ngIf="username.errors && f.submitted">
+                <div *ngIf="username.errors['required']">Username is required</div>
+                <div *ngIf="username.errors['minlength']">
+                  Username must be at least 3 characters
+                </div>
+                <div *ngIf="username.errors['maxlength']">
+                  Username must be at most 20 characters
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="block uppercase mt-6 text-blueGray-600 text-xs font-bold mb-2" for="email">Email</label>
+              <input type="email"
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                name="email" [(ngModel)]="form.email" required email #email="ngModel" />
+              <div class="alert-danger  alert-danger block uppercase mt-2 text-blueGray-600 text-xs font-bold mb-2 "
+                *ngIf="email.errors && f.submitted">
+                <div *ngIf="email.errors['required']">Email is required</div>
+                <div *ngIf="email.errors['email']">
+                  Email must be a valid email address
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="block uppercase mt-6 text-blueGray-600 text-xs font-bold mb-2"
+                for="password">Password</label>
+              <input type="password"
+                class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel" />
+              <div class="alert-danger block uppercase mt-2 text-blueGray-600 text-xs font-bold mb-2"
+                *ngIf="password.errors && f.submitted">
+                <div *ngIf="password.errors['required']">Password is required</div>
+                <div *ngIf="password.errors['minlength']">
+                  Password must be at least 6 characters
+                </div>
+              </div>
+            </div>
+            <div *ngIf="!isSuccessful" class="form-group">
+              <button
+                class="bg-transparent mt-6 items-center hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                SignUp </button>
+            </div>
+
+            <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+              <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
+                role="alert">
+                <span class="font-medium"> Signup failed!!</span> {{ errorMessage }}
+              </div>
+            </div>
+          </form>
+
+          <div class="alert  mt-6 alert-success" *ngIf="isSuccessful">
+            <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
+              role="alert">
+              <span class="font-medium">Success alert!</span> Youre registration is sucsseful
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
