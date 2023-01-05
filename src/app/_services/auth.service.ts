@@ -3,7 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
-const AUTH_API = 'http://localhost:8080/api/auth/';
+const api = "10.0.2.3";
+const AUTH_API = 'http://'+api+':8080/api/auth/';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' } )
@@ -19,32 +21,33 @@ export class AuthService {
 
 
   getBackEndData():Observable<any>{
-    return this.http.get('http://localhost:8080/api/Data')
+    //192.168.1.39
+    return this.http.get('http://'+api+':8080/api/Data')
   }
-  
+
   getComments():Observable<any>{
-    return this.http.get('http://localhost:8080/api/Data/Commentaires')
+    return this.http.get('http://'+api+':8080/api/Data/Commentaires')
 
   }
 
   getCommentsPositives():Observable<any>{
-    return this.http.get('http://localhost:8080/api/Data/numberofcommentairesbyEmotionPositive')
+    return this.http.get('http://'+api+':8080/api/Data/numberofcommentairesbyEmotionPositive')
   }
 
   getCommentsByDate():Observable<any>{
-    return this.http.get('http://localhost:8080/api/Data/numberofcommentairesbyDate')
+    return this.http.get('http://'+api+':8080/api/Data/numberofcommentairesbyDate')
   }
   getCommentsBytopic():Observable<any>{
-    return this.http.get('http://localhost:8080/api/Data/numberofcommentairesbyTopic')
+    return this.http.get('http://'+api+':8080/api/Data/numberofcommentairesbyTopic')
   }
   getEvolutionOfCommentsBytopic():Observable<any>{
-    return this.http.get('http://localhost:8080/api/Data/EvolutionofcommentairesbyTopic')
+    return this.http.get('http://'+api+':8080/api/Data/EvolutionofcommentairesbyTopic')
   }
   getCommentsByEmotion():Observable<any>{
-    return this.http.get('http://localhost:8080/api/Data/numberofcommentairesbyEmotion')
+    return this.http.get('http://'+api+':8080/api/Data/numberofcommentairesbyEmotion')
   }
   getEvolutionOfCommentsByEmotion():Observable<any>{
-    return this.http.get('http://localhost:8080/api/Data/EvolutionofcommentairesbyEmotion')
+    return this.http.get('http://'+api+':8080/api/Data/EvolutionofcommentairesbyEmotion')
   }
 
   login(username: string, password: string ): Observable<any> {
@@ -62,7 +65,7 @@ export class AuthService {
       email,
       role,
       password,
-      
+
     }, httpOptions);
   }
 }
