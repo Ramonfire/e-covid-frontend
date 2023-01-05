@@ -27,6 +27,7 @@
     "angular-in-memory-web-api": "^0.14.0",
     "chart.js": "^3.9.1",
     "flowbite": "^1.5.3",
+    "ionic": "^5.4.16",
     "ng2-charts": "^4.0.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

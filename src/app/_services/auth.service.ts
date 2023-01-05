@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
-const api = "10.0.2.3";
+const api = "localhost";
 const AUTH_API = 'http://'+api+':8080/api/auth/';
 
 
